@@ -30,7 +30,7 @@ namespace Tests
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 70,
-                    Subject = "Maths"
+                    Subject = "Verbal Reasoning"
                 },
                 new ExamResult
                 {
@@ -40,13 +40,14 @@ namespace Tests
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 45,
-                    Subject = "English"
+                    Subject = "Maths"
                 }
             };
 
             var results = this.promotionService.GetPromotionResults(examResults);
-            results.Count.ShouldBeGreaterThan(0);
-            results.Single().Promoted.ShouldBeTrue();
+            results.Count.ShouldBe(1);
+            var result = results.Single();
+            result.Promoted.ShouldBeTrue();
         }
 
         [Fact]
@@ -72,13 +73,14 @@ namespace Tests
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 49,
-                    Subject = "English"
+                    Subject = "Verbal Reasoning"
                 }
             };
 
             var results = this.promotionService.GetPromotionResults(examResults);
-            results.Count.ShouldBeGreaterThan(0);
-            results.Single().Promoted.ShouldBeFalse();
+            results.Count.ShouldBe(1);
+            var result = results.Single();
+            result.Promoted.ShouldBeFalse();
         }
     }
 }
