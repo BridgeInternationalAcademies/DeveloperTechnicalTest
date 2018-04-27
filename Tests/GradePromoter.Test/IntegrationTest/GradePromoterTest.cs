@@ -11,10 +11,11 @@ namespace GradePromoter.IntegrationTest
         [Fact]
         public async Task GradePromoter_ProducesExpectedOutput()
         {
-            var outfile = @".\Output.txt";
+            var outfile = @"Output.txt";
             var gradePromoter = new GradePromoter(new FileService(), new PromotionService());
-            gradePromoter.CalculatePromotions(@".\IntegrationTest\ExamResults.csv", outfile);
-
+            var input = Path.Combine("IntegrationTest", "ExamResults.csv");
+            gradePromoter.CalculatePromotions(input, outfile);
+            
             var output = await File.ReadAllLinesAsync(outfile);
             output.Length.ShouldBe(15);
             output[0].ShouldBe("Grade Standard 1");
