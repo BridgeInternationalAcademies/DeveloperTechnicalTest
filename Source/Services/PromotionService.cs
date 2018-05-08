@@ -11,7 +11,7 @@ namespace GradePromoter.Services
         {
             var pupils = examResults
                 .GroupBy(x => x.PupilId)
-                .Select( x => this.CheckIfPromoted(x.ToList()))
+                .Select(y => this.CheckIfPromoted(y.ToList()))
                 .ToList();
             return pupils;
         }
