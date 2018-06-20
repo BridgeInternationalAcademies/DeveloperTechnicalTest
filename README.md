@@ -1,6 +1,6 @@
-![Bridge International Academies Logo](https://raw.githubusercontent.com/BridgeInternationalAcademies/JuniorDeveloperTechnicalTest/master/MainLogo.png)
+![Bridge International Academies Logo](https://raw.githubusercontent.com/BridgeInternationalAcademies/DeveloperTechnicalTest/master/MainLogo.png)
 
-# Junior Developer Technical Test
+# Developer Technical Test
 
 ## Objective
 
@@ -15,8 +15,11 @@ Don't panic! We realise that you may or may not already know C#. When you come i
 3. Install the [.NET Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) Visual Studio Code extension. This extension makes running C# tests very easy and nicely displays which of your tests are failing.
 4. After installing both extensions, close all instance of Visual Studio Code and re-launch.
 5. Install [Git](https://git-scm.com/downloads) and clone this git repository using the following command:
-    `git clone https://github.com/BridgeInternationalAcademies/JuniorDeveloperTechnicalTest.git`
-6. Open the `JuniorDeveloperTechnicalTest` directory in Visual Studio Code by clicking on the 'File' menu, followed by 'Open Folder', now select the `JuniorDeveloperTechnicalTest` directory.
+    `git clone https://github.com/BridgeInternationalAcademies/
+    
+    
+    DeveloperTechnicalTest.git`
+6. Open the `DeveloperTechnicalTest` directory in Visual Studio Code by clicking on the 'File' menu, followed by 'Open Folder', now select the `DeveloperTechnicalTest` directory.
 7. Open the 'Integrated Terminal' window if it isn't already open by clicking on the 'View' menu, followed by 'IntegratedTerminal'.
 8. Run `dotnet build` to compile the application. Check to make sure that the application compiles successfully.
 9. Enable the .Net Test Explorer in the Visual Studio side bar, execute the tests and inspect the results.
