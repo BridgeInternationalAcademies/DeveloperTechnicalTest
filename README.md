@@ -1,40 +1,19 @@
 ![Bridge International Academies Logo](https://raw.githubusercontent.com/BridgeInternationalAcademies/DeveloperTechnicalTest/master/MainLogo.png)
 
-# Developer Technical Test
+# Grade Promoter Application
 
 ## Objective
 
-The objective is simple, all you need to do is clone this repository, read and understand the C# code and to get the application and tests running successfully. You will then be called for an interview where there will be a pair programming exercise with a Bridge developer to make some improvements or add new features to the application.
+A separate document will be shared detailing the objective.  
 
-Don't panic! We realise that you may or may not already know C#. When you come in for the interview, you will have an expert C# developer to guide you through the technical test exercise. We're less interested in what you know and more interested in your thought process.
+## Application Overview
 
-## Getting Started
+The Grade Promoter application is used to decide if a pupil has achieved a pass rate in their exams, so that they can be promoted to the next school grade.  The academics team collate the a list of all pupil exam scores in a single CSV.  This is the input to the application.
 
-1. Follow [these](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code) simple instructions to install the .NET Core SDK and Visual Studio Code, it also shows you how you can create and run your first C# application. The .NET Core SDK contains all of the tools need to compile and run C# applications. Visual Studio Code is a code editor which can be used to write C# applications, as well as applications using many other languages.
-2. Install the [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Visual Studio Code extension.  Enabling you to run and debug C# code.
-3. Install the [.NET Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) Visual Studio Code extension. This extension makes running C# tests very easy and nicely displays which of your tests are failing.
-4. After installing both extensions, close all instance of Visual Studio Code and re-launch.
-5. Install [Git](https://git-scm.com/downloads) and clone this git repository using the following command:
-    `git clone https://github.com/BridgeInternationalAcademies/
-    
-    
-    DeveloperTechnicalTest.git`
-6. Open the `DeveloperTechnicalTest` directory in Visual Studio Code by clicking on the 'File' menu, followed by 'Open Folder', now select the `DeveloperTechnicalTest` directory.
-7. Open the 'Integrated Terminal' window if it isn't already open by clicking on the 'View' menu, followed by 'IntegratedTerminal'.
-8. Run `dotnet build` to compile the application. Check to make sure that the application compiles successfully.
-9. Enable the .Net Test Explorer in the Visual Studio side bar, execute the tests and inspect the results.
-10. Click on the 'Debug' menu, followed by 'Start Debugging' to start the application.
+The CSV will contain multiple pupils, across a number of grades.  Each pupil is expected to only sit exams in a single grade in any one year.  Each pupil will sit a number of exams in different subjects and types (mid-term, end-term).
 
-Spend some time getting to know the code.
+A pupil can be promoted to the next school grade, if they achieve an average score greater than 50.
 
-The application uses a couple of external libraries which you might find interesting to research:
+## Implementation
 
-1. Linq (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/getting-started-with-linq)
-2. Moq (https://github.com/Moq/moq4/wiki/Quickstart)
-3. Shouldly (https://github.com/shouldly/shouldly)
-
-## Learning C#
-
-For those eager to learn, follow the [C# Quickstart Guide](https://docs.microsoft.com/en-us/dotnet/csharp/quick-starts/index) to learn more about the C# language and .NET Core. This guide runs entirely in the web browser, so you don't need to install anything.
-
-## Good Luck!
+The app is implemented as a dotnet core 2.0 console application.  The tests are executed using Xunit.  The application can be developed in either Visual Studio or VS Code.
