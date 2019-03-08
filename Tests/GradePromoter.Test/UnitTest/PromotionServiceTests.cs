@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace Tests
+namespace GradePromoter.Test.UnitTest
 {
     public class PromotionServiceTests
     {
