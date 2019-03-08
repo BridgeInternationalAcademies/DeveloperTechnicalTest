@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradePromoter", "Source\Gra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradePromoter.Test", "Tests\GradePromoter.Test\GradePromoter.Test.csproj", "{98B478DE-1025-4446-9AC2-E502E8CFA1FA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{8E4122D8-1E15-4293-A0F8-94CECCFDD0E1}"
+	ProjectSection(SolutionItems) = preProject
+		MinimumRecommendedRulesWithStyleCop.ruleset = MinimumRecommendedRulesWithStyleCop.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +57,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D84F2005-BD68-4361-B5C2-3DCF6B9E3CB0} = {61A86B75-D25C-4E6D-9C6B-D20FC6E2F82D}
 		{98B478DE-1025-4446-9AC2-E502E8CFA1FA} = {74932502-3B46-4F2F-A963-37D905EF7920}
+		{8E4122D8-1E15-4293-A0F8-94CECCFDD0E1} = {61A86B75-D25C-4E6D-9C6B-D20FC6E2F82D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46FA3C8D-E8DD-4F16-BA52-F1436E08FCBF}
