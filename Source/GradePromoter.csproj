@@ -12,4 +12,10 @@
     <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" Version="1.1.0-beta009" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ExamResults.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
