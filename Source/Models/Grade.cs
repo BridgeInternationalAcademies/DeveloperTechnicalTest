@@ -1,4 +1,4 @@
-﻿namespace GradePromoter.Models
+﻿namespace Grade.Promoter.Models
 {
     public class Grade
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GradePromoter.Models
+﻿namespace Grade.Promoter.Models
 {
     public class Pupil
     {

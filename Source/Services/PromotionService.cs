@@ -1,10 +1,10 @@
-using GradePromoter.Models;
-using GradePromoter.ViewModels;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace GradePromoter.Services
+namespace Grade.Promoter.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Grade.Promoter.Models;
+    using Grade.Promoter.ViewModels;
+
     public class PromotionService : IPromotionService
     {
         public List<Pupil> GetPromotionResults(List<ExamResult> examResults)
@@ -16,14 +16,15 @@ namespace GradePromoter.Services
             return pupils;
         }
 
-        private Pupil CheckIfPromoted(List<ExamResult> examResults) {
-          return new Pupil
+        private Pupil CheckIfPromoted(List<ExamResult> examResults)
+        {
+            return new Pupil
             {
                 PupilName = examResults.First().PupilName,
                 Grade = examResults.First().Grade,
                 PupilId = examResults.First().PupilId,
-                Promoted = examResults.Average(x => x.Result) > 50
+                Promoted = examResults.Average(x => x.Result) > 50,
             };
-        } 
+        }
     }
 }

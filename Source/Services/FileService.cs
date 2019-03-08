@@ -1,17 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using CsvHelper;
-using GradePromoter.Models;
-using GradePromoter.ViewModels;
-
-namespace GradePromoter.Services
+namespace Grade.Promoter.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using CsvHelper;
+    using Grade.Promoter.Models;
+    using Grade.Promoter.ViewModels;
+
     public class FileService : IFileService
     {
-       public List<ExamResult> ParseExamResultsFromCsv(string filepath)
-       {
+        public List<ExamResult> ParseExamResultsFromCsv(string filepath)
+        {
             using (TextReader fileReader = File.OpenText(filepath))
             {
                 var csv = new CsvReader(fileReader);
@@ -20,12 +20,14 @@ namespace GradePromoter.Services
                 var examResult = csv.GetRecords<ExamResult>().ToList();
                 return examResult;
             }
-       }
+        }
 
         public string WritePromotionResults(List<Grade> grades, List<Pupil> pupils, string outputPath)
         {
             if (pupils == null || pupils.Count == 0)
+            {
                 throw new ArgumentNullException(nameof(pupils));
+            }
 
             var path = Path.Combine(outputPath);
 
@@ -37,7 +39,7 @@ namespace GradePromoter.Services
                     var promotedNotPupils = pupils.Where(x => x.Grade == grade.Name && !x.Promoted);
 
                     writer.WriteLine($"Grade {grade.Name}");
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Promoted:");
 
                     foreach (var pupil in promotedPupils)
@@ -45,14 +47,14 @@ namespace GradePromoter.Services
                         writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
                     }
 
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Not Promoted:");
                     foreach (var pupil in promotedNotPupils)
                     {
                         writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
                     }
 
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                 }
 
                 return writer.ToString();

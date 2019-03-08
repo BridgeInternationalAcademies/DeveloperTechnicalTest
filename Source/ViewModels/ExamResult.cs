@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace GradePromoter.ViewModels
+﻿namespace Grade.Promoter.ViewModels
 {
+    using System;
+
     public class ExamResult
     {
         public int PupilId { get; set; }
