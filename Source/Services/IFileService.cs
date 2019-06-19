@@ -8,6 +8,6 @@ namespace GradePromoter.Services
     {
         List<ExamResult> ParseExamResultsFromCsv(string filepath);
 
-        string WritePromotionResults(List<Grade> grades, List<Pupil> pupils, string outputPath);
+        string WritePromotionResults(List<Pupil> pupils, string outputPath);
     }
 }

@@ -50,13 +50,6 @@ namespace GradePromoter.Test.UnitTest
                     Promoted = false
                 }
             };
-            var grades = new List<Grade>()
-            {
-                new Grade()
-                {
-                    Name = grade
-                }
-            };
 
             this.fileServiceMock
                 .Setup(x => x.ParseExamResultsFromCsv(It.IsAny<string>()))
@@ -64,8 +57,7 @@ namespace GradePromoter.Test.UnitTest
             promotionsServiceMock
                 .Setup(x => x.GetPromotionResults(examResults))
                 .Returns(pupils);
-            this.fileServiceMock.Setup(x => x.WritePromotionResults(
-                It.Is<List<Grade>>(y => y.Count == 1 && y.First().Name == grade), pupils, output))
+            this.fileServiceMock.Setup(x => x.WritePromotionResults(pupils, output))
                 .Returns(string.Empty);
 
             gradePromoter.CalculatePromotions(input, output);
