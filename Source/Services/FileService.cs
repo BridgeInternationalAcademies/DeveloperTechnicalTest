@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using CsvHelper;
-using GradePromoter.Models;
-using GradePromoter.ViewModels;
-
-namespace GradePromoter.Services
+namespace Grade.Promoter.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using CsvHelper;
+    using Grade.Promoter.Models;
+    using Grade.Promoter.ViewModels;
+
     public class FileService : IFileService
     {
         public List<ExamResult> ParseExamResultsFromCsv(string filepath)
@@ -25,7 +25,9 @@ namespace GradePromoter.Services
         public string WritePromotionResults(List<Pupil> pupils, string outputPath)
         {
             if (pupils == null || pupils.Count == 0)
+            {
                 throw new ArgumentNullException(nameof(pupils));
+            }
 
             var path = Path.Combine(outputPath);
 
@@ -41,14 +43,14 @@ namespace GradePromoter.Services
                     writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
                 }
 
-                writer.WriteLine("");
+                writer.WriteLine(string.Empty);
                 writer.WriteLine("Not Promoted:");
                 foreach (var pupil in promotedNotPupils)
                 {
                     writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
                 }
 
-                writer.WriteLine("");
+                writer.WriteLine(string.Empty);
 
                 return writer.ToString();
             }

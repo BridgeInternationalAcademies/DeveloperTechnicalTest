@@ -1,14 +1,14 @@
-﻿using GradePromoter.Models;
-using GradePromoter.Services;
-using GradePromoter.ViewModels;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
-
-namespace GradePromoter.Test.UnitTest
+﻿namespace Grade.Promoter.Test.UnitTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Grade.Promoter.Models;
+    using Grade.Promoter.Services;
+    using Grade.Promoter.ViewModels;
+    using Moq;
+    using Xunit;
+
     public class GradePromoterTest : IDisposable
     {
         private readonly Mock<IPromotionService> promotionsServiceMock;
@@ -19,7 +19,7 @@ namespace GradePromoter.Test.UnitTest
         {
             this.promotionsServiceMock = new Mock<IPromotionService>(MockBehavior.Strict);
             this.fileServiceMock = new Mock<IFileService>(MockBehavior.Strict);
-            this.gradePromoter = new GradePromoter(this.fileServiceMock.Object, promotionsServiceMock.Object);
+            this.gradePromoter = new GradePromoter(this.fileServiceMock.Object, this.promotionsServiceMock.Object);
         }
 
         [Fact]
@@ -36,9 +36,8 @@ namespace GradePromoter.Test.UnitTest
                 {
                     Grade = grade,
                     Subject = subject,
-                    PupilName = pupilName
-
-                }
+                    PupilName = pupilName,
+                },
             };
             var pupils = new List<Pupil>()
             {
@@ -47,26 +46,26 @@ namespace GradePromoter.Test.UnitTest
                     PupilId = 0,
                     PupilName = pupilName,
                     Grade = grade,
-                    Promoted = false
-                }
+                    Promoted = false,
+                },
             };
 
             this.fileServiceMock
                 .Setup(x => x.ParseExamResultsFromCsv(It.IsAny<string>()))
                 .Returns(examResults);
-            promotionsServiceMock
+            this.promotionsServiceMock
                 .Setup(x => x.GetPromotionResults(examResults))
                 .Returns(pupils);
             this.fileServiceMock.Setup(x => x.WritePromotionResults(pupils, output))
                 .Returns(string.Empty);
 
-            gradePromoter.CalculatePromotions(input, output);
-
+            this.gradePromoter.CalculatePromotions(input, output);
         }
 
         public void Dispose() =>
 
-            Mock.VerifyAll(this.promotionsServiceMock,
+            Mock.VerifyAll(
+                this.promotionsServiceMock,
                 this.fileServiceMock);
     }
 }

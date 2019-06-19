@@ -1,20 +1,20 @@
-using GradePromoter.Services;
-using GradePromoter.ViewModels;
-using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
-
-namespace Tests
+namespace Grade.Promoter.Test.UnitTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Grade.Promoter.Services;
+    using Grade.Promoter.ViewModels;
+    using Shouldly;
+    using Xunit;
+
     public class PromotionServiceTests
     {
         private readonly PromotionService promotionService;
 
         public PromotionServiceTests()
         {
-            promotionService = new PromotionService();
+            this.promotionService = new PromotionService();
         }
 
         [Fact]
@@ -26,22 +26,22 @@ namespace Tests
                 {
                     PupilId = 1,
                     Grade = "Standard 1",
-                    AssesmentDate = new DateTime(),
+                    AssesmentDate = default(DateTime),
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 70,
-                    Subject = "Verbal Reasoning"
+                    Subject = "Verbal Reasoning",
                 },
                 new ExamResult
                 {
                     PupilId = 1,
                     Grade = "Standard 1",
-                    AssesmentDate = new DateTime(),
+                    AssesmentDate = default(DateTime),
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 45,
-                    Subject = "Maths"
-                }
+                    Subject = "Maths",
+                },
             };
 
             var results = this.promotionService.GetPromotionResults(examResults);
@@ -59,22 +59,22 @@ namespace Tests
                 {
                     PupilId = 1,
                     Grade = "Standard 1",
-                    AssesmentDate = new DateTime(),
+                    AssesmentDate = default(DateTime),
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 51,
-                    Subject = "Maths"
+                    Subject = "Maths",
                 },
-                 new ExamResult
+                new ExamResult
                 {
                     PupilId = 1,
                     Grade = "Standard 1",
-                    AssesmentDate = new DateTime(),
+                    AssesmentDate = default(DateTime),
                     AssessmentType = "End-Term",
                     PupilName = "Joe Bloggs",
                     Result = 49,
-                    Subject = "Verbal Reasoning"
-                }
+                    Subject = "Verbal Reasoning",
+                },
             };
 
             var results = this.promotionService.GetPromotionResults(examResults);

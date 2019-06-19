@@ -1,11 +1,11 @@
-using GradePromoter.Services;
-using Shouldly;
-using System.IO;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace GradePromoter.IntegrationTest
+namespace Grade.Promoter.IntegrationTest
 {
+    using System.IO;
+    using System.Threading.Tasks;
+    using Grade.Promoter.Services;
+    using Shouldly;
+    using Xunit;
+
     public class GradePromoterTest
     {
         [Fact]
@@ -15,7 +15,7 @@ namespace GradePromoter.IntegrationTest
             var gradePromoter = new GradePromoter(new FileService(), new PromotionService());
             var input = Path.Combine("IntegrationTest", "ExamResults.csv");
             gradePromoter.CalculatePromotions(input, outfile);
-            
+
             var output = await File.ReadAllLinesAsync(outfile);
             output.Length.ShouldBe(13);
             output[0].ShouldBe("Promoted:");
@@ -27,7 +27,7 @@ namespace GradePromoter.IntegrationTest
             output[6].ShouldBe("6,Roderick Morales");
             output[7].ShouldBe("1,Gisselle Haley");
             output[8].ShouldBe("4,Elise Larsen");
-            output[9].ShouldBe("");
+            output[9].ShouldBe(string.Empty);
             output[10].ShouldBe("Not Promoted:");
             output[11].ShouldBe("3,Jon Rojas");
         }

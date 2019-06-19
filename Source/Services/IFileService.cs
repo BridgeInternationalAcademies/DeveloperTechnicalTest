@@ -1,9 +1,9 @@
-﻿using GradePromoter.Models;
-using GradePromoter.ViewModels;
-using System.Collections.Generic;
-
-namespace GradePromoter.Services
+﻿namespace Grade.Promoter.Services
 {
+    using System.Collections.Generic;
+    using Grade.Promoter.Models;
+    using Grade.Promoter.ViewModels;
+
     public interface IFileService
     {
         List<ExamResult> ParseExamResultsFromCsv(string filepath);
