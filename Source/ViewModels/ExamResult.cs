@@ -1,4 +1,4 @@
-﻿namespace Grade.Promoter.ViewModels
+﻿namespace Grade.Promotions.ViewModels
 {
     using System;
 

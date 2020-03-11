@@ -1,58 +1,24 @@
-namespace Grade.Promoter.Services
+namespace Grade.Promotions.Services
 {
-    using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using CsvHelper;
-    using Grade.Promoter.Models;
-    using Grade.Promoter.ViewModels;
+    using CsvHelper.Configuration;
+    using Grade.Promotions.ViewModels;
 
     public class FileService : IFileService
     {
         public List<ExamResult> ParseExamResultsFromCsv(string filepath)
         {
-            using (TextReader fileReader = File.OpenText(filepath))
+            using (var fileReader = File.OpenText(filepath))
             {
-                var csv = new CsvReader(fileReader);
+                var csv = new CsvReader(fileReader, new CsvConfiguration(CultureInfo.InvariantCulture), leaveOpen: false);
                 csv.Configuration.HasHeaderRecord = false;
                 csv.Read();
                 var examResult = csv.GetRecords<ExamResult>().ToList();
                 return examResult;
-            }
-        }
-
-        public string WritePromotionResults(List<Pupil> pupils, string outputPath)
-        {
-            if (pupils == null || pupils.Count == 0)
-            {
-                throw new ArgumentNullException(nameof(pupils));
-            }
-
-            var path = Path.Combine(outputPath);
-
-            using (var writer = File.CreateText(path))
-            {
-                var promotedPupils = pupils.Where(x => x.Promoted);
-                var promotedNotPupils = pupils.Where(x => !x.Promoted);
-
-                writer.WriteLine("Promoted:");
-
-                foreach (var pupil in promotedPupils)
-                {
-                    writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
-                }
-
-                writer.WriteLine(string.Empty);
-                writer.WriteLine("Not Promoted:");
-                foreach (var pupil in promotedNotPupils)
-                {
-                    writer.WriteLine($"{pupil.PupilId},{pupil.PupilName}");
-                }
-
-                writer.WriteLine(string.Empty);
-
-                return writer.ToString();
             }
         }
     }
