@@ -6,6 +6,6 @@
 
     public interface IPromotionService
     {
-        List<Pupil> GetPromotionResults(List<ExamResult> examResults);
+        List<Pupil> GeneratePromotionResults(List<ExamResult> examResults);
     }
 }

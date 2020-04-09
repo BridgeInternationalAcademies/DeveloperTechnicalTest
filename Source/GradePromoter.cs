@@ -22,7 +22,7 @@ namespace Grade.Promoter
             var examResults = this.fileService.ParseExamResultsFromCsv(input);
 
             // Process the exam results data
-            var pupils = this.promotionService.GetPromotionResults(examResults);
+            var pupils = this.promotionService.GeneratePromotionResults(examResults);
 
             // Write the promotion results to a file
             this.fileService.WritePromotionResults(pupils, output);

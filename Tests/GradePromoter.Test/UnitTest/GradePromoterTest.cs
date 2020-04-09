@@ -54,7 +54,7 @@
                 .Setup(x => x.ParseExamResultsFromCsv(It.IsAny<string>()))
                 .Returns(examResults);
             this.promotionsServiceMock
-                .Setup(x => x.GetPromotionResults(examResults))
+                .Setup(x => x.GeneratePromotionResults(examResults))
                 .Returns(pupils);
             this.fileServiceMock.Setup(x => x.WritePromotionResults(pupils, output))
                 .Returns(string.Empty);
