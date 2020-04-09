@@ -80,11 +80,11 @@ namespace Grade.Promoter.Test.UnitTest
             };
 
             this.pupilFactoryMock
-                .Setup(x => x.Create(It.Is<List<ExamResult>>(y => y.All(z => z.PupilId == 1))))
+                .Setup(x => x.Create(It.Is<List<ExamResult>>(y => y.All(z => z.PupilId == pupilId1))))
                 .Returns(mockPupil1);
 
             this.pupilFactoryMock
-                 .Setup(x => x.Create(It.Is<List<ExamResult>>(y => y.All(z => z.PupilId == 2))))
+                 .Setup(x => x.Create(It.Is<List<ExamResult>>(y => y.All(z => z.PupilId == pupilId2))))
                  .Returns(mockPupil2);
 
             var pupils = this.promotionService.GeneratePromotionResults(examResults);
