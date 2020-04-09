@@ -4,7 +4,7 @@
     using Grade.Promoter.Models;
     using Grade.Promoter.ViewModels;
 
-    public interface IPromotionService
+    public interface IPupilsService
     {
         List<Pupil> GeneratePromotionResults(List<ExamResult> examResults);
     }

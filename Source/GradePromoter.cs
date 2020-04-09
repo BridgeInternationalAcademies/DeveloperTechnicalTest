@@ -1,19 +1,18 @@
 namespace Grade.Promoter
 {
-    using System.Linq;
     using Grade.Promoter.Services;
 
     public class GradePromoter
     {
         private readonly IFileService fileService;
-        private readonly IPromotionService promotionService;
+        private readonly IPupilsService pupilsService;
 
         public GradePromoter(
           IFileService fileService,
-          IPromotionService promotionService)
+          IPupilsService pupilsService)
         {
             this.fileService = fileService;
-            this.promotionService = promotionService;
+            this.pupilsService = pupilsService;
         }
 
         public void CalculatePromotions(string input, string output)
@@ -22,7 +21,7 @@ namespace Grade.Promoter
             var examResults = this.fileService.ParseExamResultsFromCsv(input);
 
             // Process the exam results data
-            var pupils = this.promotionService.GeneratePromotionResults(examResults);
+            var pupils = this.pupilsService.GeneratePromotionResults(examResults);
 
             // Write the promotion results to a file
             this.fileService.WritePromotionResults(pupils, output);

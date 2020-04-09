@@ -6,11 +6,11 @@ namespace Grade.Promoter.Services
     using Grade.Promoter.Models;
     using Grade.Promoter.ViewModels;
 
-    public class PromotionService : IPromotionService
+    public class PupilsService : IPupilsService
     {
         private readonly IPupilFactory pupilFactory;
 
-        public PromotionService(
+        public PupilsService(
             IPupilFactory pupilFactory)
         {
             this.pupilFactory = pupilFactory;

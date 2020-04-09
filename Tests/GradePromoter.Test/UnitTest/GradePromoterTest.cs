@@ -11,13 +11,13 @@
 
     public class GradePromoterTest : IDisposable
     {
-        private readonly Mock<IPromotionService> promotionsServiceMock;
+        private readonly Mock<IPupilsService> promotionsServiceMock;
         private readonly Mock<IFileService> fileServiceMock;
         private readonly GradePromoter gradePromoter;
 
         public GradePromoterTest()
         {
-            this.promotionsServiceMock = new Mock<IPromotionService>(MockBehavior.Strict);
+            this.promotionsServiceMock = new Mock<IPupilsService>(MockBehavior.Strict);
             this.fileServiceMock = new Mock<IFileService>(MockBehavior.Strict);
             this.gradePromoter = new GradePromoter(this.fileServiceMock.Object, this.promotionsServiceMock.Object);
         }

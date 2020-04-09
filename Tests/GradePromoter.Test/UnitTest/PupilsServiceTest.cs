@@ -11,15 +11,15 @@ namespace Grade.Promoter.Test.UnitTest
     using Shouldly;
     using Xunit;
 
-    public class PromotionServiceTests : IDisposable
+    public class PupilsServiceTest : IDisposable
     {
-        private readonly PromotionService promotionService;
+        private readonly PupilsService pupilsService;
         private readonly Mock<IPupilFactory> pupilFactoryMock;
 
-        public PromotionServiceTests()
+        public PupilsServiceTest()
         {
             this.pupilFactoryMock = new Mock<IPupilFactory>(MockBehavior.Strict);
-            this.promotionService = new PromotionService(this.pupilFactoryMock.Object);
+            this.pupilsService = new PupilsService(this.pupilFactoryMock.Object);
         }
 
         public void Dispose()
@@ -47,7 +47,7 @@ namespace Grade.Promoter.Test.UnitTest
                 .Setup(x => x.Create(examResults))
                 .Returns(mockPupil);
 
-            var pupils = this.promotionService.GeneratePromotionResults(examResults);
+            var pupils = this.pupilsService.GeneratePromotionResults(examResults);
 
             pupils.Count().ShouldBe(1);
             pupils.Single().ShouldBe(mockPupil);
@@ -87,7 +87,7 @@ namespace Grade.Promoter.Test.UnitTest
                  .Setup(x => x.Create(It.Is<List<ExamResult>>(y => y.All(z => z.PupilId == pupilId2))))
                  .Returns(mockPupil2);
 
-            var pupils = this.promotionService.GeneratePromotionResults(examResults);
+            var pupils = this.pupilsService.GeneratePromotionResults(examResults);
 
             pupils.Count().ShouldBe(2);
             pupils.Contains(mockPupil1);

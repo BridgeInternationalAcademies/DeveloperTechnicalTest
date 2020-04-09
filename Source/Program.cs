@@ -14,15 +14,16 @@
 
             // Dependency Injection
             var serviceProvider = new ServiceCollection()
-            .AddSingleton<IPromotionService, PromotionService>()
+            .AddSingleton<IPupilsService, PupilsService>()
             .AddSingleton<IFileService, FileService>()
             .BuildServiceProvider();
             var fileService = serviceProvider.GetService<IFileService>();
-            var promotionService = serviceProvider.GetService<IPromotionService>();
+            var promotionService = serviceProvider.GetService<IPupilsService>();
 
             Console.WriteLine($"Processing...");
             GradePromoter gradePromoter = new GradePromoter(fileService, promotionService);
             gradePromoter.CalculatePromotions(input, output);
+
             Console.WriteLine($"Complete. Promotions have been written to {output}");
         }
     }
