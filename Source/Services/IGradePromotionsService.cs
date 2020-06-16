@@ -1,7 +1,10 @@
 ﻿namespace Grade.Promotions.Services
 {
+    using System.Collections.Generic;
+    using Grade.Promotions.ViewModels;
+
     public interface IGradePromotionsService
     {
-        void Calculate(string input);
+        List<PromotionResult> GetPromotionResults(string input);
     }
 }

@@ -18,7 +18,13 @@
 
             Console.WriteLine($"Processing...");
             var gradePromotionsService = serviceProvider.GetService<IGradePromotionsService>();
-            gradePromotionsService.Calculate(input);
+
+            var promotionResults = gradePromotionsService.GetPromotionResults(input);
+
+            foreach (var result in promotionResults)
+            {
+                Console.WriteLine($"Pupil Id: {result.PupilId}, Promoted: {result.IsPromoted}");
+            }
         }
     }
 }

@@ -19,7 +19,7 @@
         }
 
         [Fact]
-        public void Calculate_ValidInputString_ReadsFile()
+        public void GetPromotionResults_ValidInputString_ReadsFile()
         {
             var input = "input.txt";
             var examResults = new List<ExamResult>()
@@ -36,7 +36,7 @@
                 .Setup(x => x.ParseExamResultsFromCsv(It.IsAny<string>()))
                 .Returns(examResults);
 
-            this.service.Calculate(input);
+            var promotionResults = this.service.GetPromotionResults(input);
         }
 
         public void Dispose() =>

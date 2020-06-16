@@ -1,5 +1,8 @@
 ﻿namespace Grade.Promotions.Services
 {
+    using System.Collections.Generic;
+    using Grade.Promotions.ViewModels;
+
     public class GradePromotionsService : IGradePromotionsService
     {
         private readonly IFileService fileService;
@@ -9,7 +12,7 @@
             this.fileService = fileService;
         }
 
-        public void Calculate(string input)
+        public List<PromotionResult> GetPromotionResults(string input)
         {
             var examResults = this.fileService.ParseExamResultsFromCsv(input);
 
