@@ -23,7 +23,7 @@ namespace Grade.Promoter.Services
                 PupilName = examResults.First().PupilName,
                 Grade = examResults.First().Grade,
                 PupilId = examResults.First().PupilId,
-                Promoted = examResults.Average(x => x.Result) > 50,
+                IsPromoted = examResults.Average(x => x.Result) > 50,
             };
         }
     }

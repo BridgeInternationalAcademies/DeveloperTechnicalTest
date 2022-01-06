@@ -33,8 +33,8 @@ namespace Grade.Promoter.Services
 
             using (var writer = File.CreateText(path))
             {
-                var promotedPupils = pupils.Where(x => x.Promoted);
-                var promotedNotPupils = pupils.Where(x => !x.Promoted);
+                var promotedPupils = pupils.Where(x => x.IsPromoted);
+                var promotedNotPupils = pupils.Where(x => !x.IsPromoted);
 
                 writer.WriteLine("Promoted:");
 
