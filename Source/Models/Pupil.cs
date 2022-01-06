@@ -8,6 +8,6 @@
 
         public string Grade { get; set; }
 
-        public bool Promoted { get; set; }
+        public bool IsPromoted { get; set; }
     }
 }

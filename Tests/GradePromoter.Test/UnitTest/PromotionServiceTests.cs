@@ -44,10 +44,10 @@ namespace Grade.Promoter.Test.UnitTest
                 },
             };
 
-            var results = this.promotionService.GetPromotionResults(examResults);
-            results.Count.ShouldBe(1);
-            var result = results.Single();
-            result.Promoted.ShouldBeTrue();
+            var pupils = this.promotionService.GetPromotionResults(examResults);
+            pupils.Count.ShouldBe(1);
+            var pupil = pupils.Single();
+            pupil.IsPromoted.ShouldBeTrue();
         }
 
         [Fact]
@@ -77,10 +77,10 @@ namespace Grade.Promoter.Test.UnitTest
                 },
             };
 
-            var results = this.promotionService.GetPromotionResults(examResults);
-            results.Count.ShouldBe(1);
-            var result = results.Single();
-            result.Promoted.ShouldBeFalse();
+            var pupils = this.promotionService.GetPromotionResults(examResults);
+            pupils.Count.ShouldBe(1);
+            var pupil = pupils.Single();
+            pupil.IsPromoted.ShouldBeFalse();
         }
     }
 }

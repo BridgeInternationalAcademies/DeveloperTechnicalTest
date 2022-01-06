@@ -46,7 +46,7 @@
                     PupilId = 0,
                     PupilName = pupilName,
                     Grade = grade,
-                    Promoted = false,
+                    IsPromoted = false,
                 },
             };
 
