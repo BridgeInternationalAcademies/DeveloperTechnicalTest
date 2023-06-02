@@ -17,11 +17,6 @@ namespace Grade.Promoter.Test.UnitTest
         public void OneIsOne() {
             1.ShouldBe(1);
         }
-
-        [Fact]
-        public void PupilWithGreaterThan50PercentAverage_ReturnsPromoted()
-        {
-        }
     }
 
 }
