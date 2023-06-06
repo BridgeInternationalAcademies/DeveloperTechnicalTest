@@ -17,3 +17,13 @@ A pupil can be promoted to the next school grade, if they achieve an average sco
 ## Implementation
 
 The application is implemented as a dotnet core 2.0 console application.  The tests are executed using Xunit.  The application can be developed in either Visual Studio 2017 or VS Code.
+
+## Running the application
+```
+cd Source
+dotnet run
+```
+## Runnint the tests
+```
+dotnet test
+```
